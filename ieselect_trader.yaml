@@ -28,6 +28,18 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/inline_response_200"
+        "400":
+          description: リクエストエラー
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/inline_response_400"
+        "500":
+          description: サーバーエラー
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/inline_response_500"
   /traders/{shop_id}/{ieselect_trader_seq}:
     put:
       tags:
@@ -44,7 +56,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       requestBody:
         content:
           application/json:
@@ -58,25 +70,18 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/inline_response_200_1"
-    delete:
-      tags:
-        - traders
-      summary: 削除
-      operationId: deleteLandlord
-      parameters:
-        - name: shop_id
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: ieselect_trader_seq
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        "200":
-          description: 削除成功
+        "400":
+          description: リクエストエラー
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/inline_response_400_1"
+        "500":
+          description: サーバーエラー
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/inline_response_500_1"
 components:
   schemas:
     traders_body:
@@ -185,13 +190,34 @@ components:
       type: object
       properties:
         ieselect_trader_seq:
-          type: string
+          type: integer
         ins_dt:
           type: string
           format: date-time
         upd_dt:
           type: string
           format: date-time
+    inline_response_400:
+      type: object
+      properties:
+        detail:
+          type: object
+          properties:
+            message:
+              type: string
+              example: 家主の新規登録に失敗しました。不正なリクエストです。
+    inline_response_500:
+      type: object
+      properties:
+        detail:
+          type: object
+          properties:
+            message:
+              type: string
+              example: 家主の新規登録に失敗しました。
+            internal_error:
+              type: object
+              example: error_message
     shop_id_ieselect_trader_seq_body:
       type: object
       properties:
@@ -298,3 +324,24 @@ components:
         upd_dt:
           type: string
           format: date-time
+    inline_response_400_1:
+      type: object
+      properties:
+        detail:
+          type: object
+          properties:
+            message:
+              type: string
+              example: 家主情報の更新に失敗しました。不正なリクエストです。
+    inline_response_500_1:
+      type: object
+      properties:
+        detail:
+          type: object
+          properties:
+            message:
+              type: string
+              example: 家主情報の更新に失敗しました。
+            internal_error:
+              type: string
+              example: error_message
