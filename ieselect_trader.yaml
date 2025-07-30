@@ -22,7 +22,7 @@ paths:
               $ref: "#/components/schemas/traders_body"
         required: true
       responses:
-        "200":
+        "201":
           description: 登録成功
           content:
             application/json:
