@@ -1,0 +1,300 @@
+openapi: 3.0.0
+info:
+  title: yanushiAPI
+  description: 家主情報イエセレ連携API
+  version: 1.0.0
+servers:
+  - url: /
+tags:
+  - name: traders
+    description: 家主
+paths:
+  /traders:
+    post:
+      tags:
+        - traders
+      summary: 新規登録
+      operationId: registerLandlord
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/traders_body"
+        required: true
+      responses:
+        "200":
+          description: 登録成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/inline_response_200"
+  /traders/{shop_id}/{ieselect_trader_seq}:
+    put:
+      tags:
+        - traders
+      summary: 更新
+      operationId: updateLandlord
+      parameters:
+        - name: shop_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ieselect_trader_seq
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/shop_id_ieselect_trader_seq_body"
+        required: true
+      responses:
+        "200":
+          description: 更新成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/inline_response_200_1"
+    delete:
+      tags:
+        - traders
+      summary: 削除
+      operationId: deleteLandlord
+      parameters:
+        - name: shop_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ieselect_trader_seq
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 削除成功
+components:
+  schemas:
+    traders_body:
+      type: object
+      properties:
+        shop_id:
+          type: string
+        company:
+          type: string
+        company_kana:
+          type: string
+        company_form:
+          type: string
+        company_form2:
+          type: string
+        charge:
+          type: string
+        charge_kana:
+          type: string
+        charge2:
+          type: string
+        charge2_kana:
+          type: string
+        charge3:
+          type: string
+        charge3_kana:
+          type: string
+        charge1_tel1:
+          type: string
+        charge1_tel2:
+          type: string
+        charge1_tel3:
+          type: string
+        charge2_tel1:
+          type: string
+        charge2_tel2:
+          type: string
+        charge2_tel3:
+          type: string
+        charge3_tel1:
+          type: string
+        charge3_tel2:
+          type: string
+        charge3_tel3:
+          type: string
+        mail:
+          type: string
+        contact_tel1:
+          type: string
+        contact_tel2:
+          type: string
+        contact_tel3:
+          type: string
+        contact_fax1:
+          type: string
+        contact_fax2:
+          type: string
+        contact_fax3:
+          type: string
+        jgdc_seq:
+          type: string
+        zip_code1:
+          type: string
+        zip_code2:
+          type: string
+        address:
+          type: string
+        address_other:
+          type: string
+        accept_date:
+          type: string
+          format: date
+        owner_flg:
+          type: integer
+        landlord_flg:
+          type: integer
+        manager_flg:
+          type: integer
+        trader_flg:
+          type: integer
+        indi_owner_flg:
+          type: integer
+        mansion_manage_flg:
+          type: integer
+        rental_manage_flg:
+          type: integer
+        direct_property:
+          type: string
+        update_kbn:
+          type: string
+        update_week:
+          type: string
+        empty_list_exist:
+          type: string
+        empty_list_method:
+          type: string
+        empty_list_method_other:
+          type: string
+        individual_method:
+          type: string
+        individual_method_other:
+          type: string
+        note:
+          type: string
+    inline_response_200:
+      type: object
+      properties:
+        ieselect_trader_seq:
+          type: string
+        ins_dt:
+          type: string
+          format: date-time
+        upd_dt:
+          type: string
+          format: date-time
+    shop_id_ieselect_trader_seq_body:
+      type: object
+      properties:
+        company:
+          type: string
+        company_kana:
+          type: string
+        company_form:
+          type: string
+        company_form2:
+          type: string
+        charge:
+          type: string
+        charge_kana:
+          type: string
+        charge2:
+          type: string
+        charge2_kana:
+          type: string
+        charge3:
+          type: string
+        charge3_kana:
+          type: string
+        charge1_tel1:
+          type: string
+        charge1_tel2:
+          type: string
+        charge1_tel3:
+          type: string
+        charge2_tel1:
+          type: string
+        charge2_tel2:
+          type: string
+        charge2_tel3:
+          type: string
+        charge3_tel1:
+          type: string
+        charge3_tel2:
+          type: string
+        charge3_tel3:
+          type: string
+        mail:
+          type: string
+        contact_tel1:
+          type: string
+        contact_tel2:
+          type: string
+        contact_tel3:
+          type: string
+        contact_fax1:
+          type: string
+        contact_fax2:
+          type: string
+        contact_fax3:
+          type: string
+        jgdc_seq:
+          type: string
+        zip_code1:
+          type: string
+        zip_code2:
+          type: string
+        address:
+          type: string
+        address_other:
+          type: string
+        accept_date:
+          type: string
+          format: date
+        owner_flg:
+          type: integer
+        landlord_flg:
+          type: integer
+        manager_flg:
+          type: integer
+        trader_flg:
+          type: integer
+        indi_owner_flg:
+          type: integer
+        mansion_manage_flg:
+          type: integer
+        rental_manage_flg:
+          type: integer
+        direct_property:
+          type: string
+        update_kbn:
+          type: string
+        update_week:
+          type: string
+        empty_list_exist:
+          type: string
+        empty_list_method:
+          type: string
+        empty_list_method_other:
+          type: string
+        individual_method:
+          type: string
+        individual_method_other:
+          type: string
+        note:
+          type: string
+    inline_response_200_1:
+      type: object
+      properties:
+        upd_dt:
+          type: string
+          format: date-time
