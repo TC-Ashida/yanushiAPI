@@ -6,13 +6,13 @@ info:
 servers:
   - url: /
 tags:
-  - name: traders
+  - name: api
     description: 家主
 paths:
   /api:
     post:
       tags:
-        - traders
+        - api
       summary: 新規登録
       operationId: registerLandlord
       requestBody:
@@ -42,7 +42,7 @@ paths:
                 $ref: "#/components/schemas/inline_response_500"
     put:
       tags:
-        - traders
+        - api
       summary: 更新
       operationId: updateLandlord
       parameters:
