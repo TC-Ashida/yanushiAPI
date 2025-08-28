@@ -9,7 +9,7 @@ tags:
   - name: traders
     description: 家主
 paths:
-  /traders:
+  /api:
     post:
       tags:
         - traders
@@ -51,7 +51,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: ieselect_trader_seq
+        - name: trader_seq
           in: query
           required: true
           schema:
@@ -60,7 +60,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/shop_id_ieselect_trader_seq_body"
+              $ref: "#/components/schemas/shop_id_trader_seq_body"
         required: true
       responses:
         "200":
@@ -188,7 +188,7 @@ components:
     inline_response_200:
       type: object
       properties:
-        ieselect_trader_seq:
+        trader_seq:
           type: integer
         ins_dt:
           type: string
@@ -217,7 +217,7 @@ components:
             internal_error:
               type: object
               example: error_message
-    shop_id_ieselect_trader_seq_body:
+    shop_id_trader_seq_body:
       type: object
       properties:
         company:
