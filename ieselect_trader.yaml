@@ -40,7 +40,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/inline_response_500"
-  /traders/{shop_id}/{ieselect_trader_seq}:
     put:
       tags:
         - traders
@@ -48,12 +47,12 @@ paths:
       operationId: updateLandlord
       parameters:
         - name: shop_id
-          in: path
+          in: query
           required: true
           schema:
             type: string
         - name: ieselect_trader_seq
-          in: path
+          in: query
           required: true
           schema:
             type: integer
