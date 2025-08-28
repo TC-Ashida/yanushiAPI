@@ -150,9 +150,9 @@ components:
           type: string
         address_other:
           type: string
-        accept_date:
-          type: string
-          format: date
+        # accept_date:
+        #   type: string
+        #   format: date
         owner_flg:
           type: integer
         landlord_flg:
@@ -282,9 +282,9 @@ components:
           type: string
         address_other:
           type: string
-        accept_date:
-          type: string
-          format: date
+        # accept_date:
+        #   type: string
+        #   format: date
         owner_flg:
           type: integer
         landlord_flg:
