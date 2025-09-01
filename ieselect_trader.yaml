@@ -142,17 +142,19 @@ components:
           type: string
         jgdc_seq:
           type: string
+        address:
+          type: string
         zip_code1:
           type: string
         zip_code2:
           type: string
-        address:
+        addr:
           type: string
-        address_other:
+        addr_gou:
           type: string
-        # accept_date:
-        #   type: string
-        #   format: date
+        accept_date:
+          type: string
+          format: date
         owner_flg:
           type: integer
         landlord_flg:
@@ -274,17 +276,19 @@ components:
           type: string
         jgdc_seq:
           type: string
+        address:
+          type: string
         zip_code1:
           type: string
         zip_code2:
           type: string
-        address:
+        addr:
           type: string
-        address_other:
+        addr_gou:
           type: string
-        # accept_date:
-        #   type: string
-        #   format: date
+        accept_date:
+          type: string
+          format: date
         owner_flg:
           type: integer
         landlord_flg:
