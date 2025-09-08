@@ -96,6 +96,10 @@ components:
           type: string
         company_form2:
           type: string
+        branch:
+          type: string
+        branch_kana:
+          type: string
         charge:
           type: string
         charge_kana:
@@ -229,6 +233,10 @@ components:
         company_form:
           type: string
         company_form2:
+          type: string
+        branch:
+          type: string
+        branch_kana:
           type: string
         charge:
           type: string
